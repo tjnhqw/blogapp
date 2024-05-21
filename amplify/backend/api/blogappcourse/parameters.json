@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "blogappcourse",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authblogappcourseba66f753",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
