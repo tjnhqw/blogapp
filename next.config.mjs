@@ -12,7 +12,8 @@ const nextConfig = {
     fetches: {
       fullUrl: true
     }
-  }
+  },
+  output: "export",
 };
 
 export default nextConfig;
