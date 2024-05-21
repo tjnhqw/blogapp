@@ -71,7 +71,7 @@ function EditPost({ params }: { params: EditPostParams }) {
         position='top-center'
         reverseOrder={false}
       />
-      <h1 className='text-3xl text-center font-semibold tracking-wide mt-6 mb-2'>Edit post</h1>
+      <h1 className='text-3xl text-center font-semibold tracking-wide mt-6 mb-4'>Edit post</h1>
 
       <input type='text' name='title' onChange={onChange} placeholder='Title' value={post.title} className='border-b pb-2 text-gray-500 text-lg placeholder-gray-500 py-2 my-4' />
 
