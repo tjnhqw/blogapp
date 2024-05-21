@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Hub } from 'aws-amplify/utils';
 import { getCurrentUser } from 'aws-amplify/auth';
 import '../../configureAmplify';
+import { useRouter } from 'next/navigation';
 
 const items = [
   { name: 'Home', path: '/' },
@@ -13,7 +14,7 @@ const items = [
 ]
 const Navbar = () => {
   const [signedUser, setSignedUser] = useState(false);
-
+  const router = useRouter();
   async function authListener() {
     Hub.listen("auth", (data) => {
       switch (data.payload.event) {
@@ -25,6 +26,7 @@ const Navbar = () => {
     })
     try {
       const user = await getCurrentUser();
+      if (!user) router.push('/')
       if (user.userId) {
         setSignedUser(true)
       }

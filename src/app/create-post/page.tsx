@@ -1,14 +1,15 @@
 'use client'
 import dynamic from "next/dynamic";
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
-import { uploadData, list } from 'aws-amplify/storage';
-import { getUrl } from "aws-amplify/storage";
+import { ChangeEvent, useCallback, useRef, useState } from 'react';
+import { uploadData } from 'aws-amplify/storage';
 import { useRouter } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import { createPost } from '@/graphql/mutations';
 import client from '@/client';
 import "easymde/dist/easymde.min.css";
 import '../../../configureAmplify'
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 const SimpleMdeEditor = dynamic(
   () => import("react-simplemde-editor"),
@@ -113,33 +114,35 @@ function CreatePost() {
     setImage(image)
   }
   return (
-    <div className='flex flex-col p-8 w-screen md:w-[50vw]'>
-      <h1>Create new post</h1>
+    <Authenticator>
+      <div className='flex flex-col p-8 w-screen md:w-[50vw]'>
+        <h1>Create new post</h1>
 
-      <input type='text' name='title' value={post.title} placeholder='Title' onChange={onChange}
-        className='border-b px-2 py-2 pb-2 text-lg my-4 focus:outline-none w-full text-gray-500'
-      />
+        <input type='text' name='title' value={post.title} placeholder='Title' onChange={onChange}
+          className='border-b px-2 py-2 pb-2 text-lg my-4 focus:outline-none w-full text-gray-500'
+        />
 
-      <SimpleMdeEditor
-        className='md:max-w-[50vw] max-w-[100vw]'
-        value={post.content}
-        onChange={onChangeContent}
-      />
+        <SimpleMdeEditor
+          className='md:max-w-[50vw] max-w-[100vw]'
+          value={post.content}
+          onChange={onChangeContent}
+        />
 
-      <input type='file' ref={imageFileInput} className='' onChange={handleChange} />
-      {
-        image && (
-          <img src={imagePreview} className='my-4 mx-2 max-w-56 h-auto' />
+        <input type='file' ref={imageFileInput} className='' onChange={handleChange} />
+        {
+          image && (
+            <img src={imagePreview} className='my-4 mx-2 max-w-56 h-auto' />
 
-        )
-      }
-      <button className='my-4 float-right bg-blue-600 text-white font-semibold px-8 py-2 rounded-lg' type='button' onClick={createNewPost}>
-        Create post
-      </button>
-      {/*  <button className='my-4 float-right bg-purple-500 text-white font-semibold px-8 py-2 rounded-lg' type='button' onClick={uploadImage}>
-        Upload cover image
-      </button> */}
-    </div>
+          )
+        }
+        <button className='my-4 float-right bg-blue-600 text-white font-semibold px-8 py-2 rounded-lg' type='button' onClick={createNewPost}>
+          Create post
+        </button>
+        {/*  <button className='my-4 float-right bg-purple-500 text-white font-semibold px-8 py-2 rounded-lg' type='button' onClick={uploadImage}>
+          Upload cover image
+        </button> */}
+      </div>
+    </Authenticator>
 
   );
 }

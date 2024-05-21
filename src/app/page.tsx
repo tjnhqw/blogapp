@@ -1,5 +1,5 @@
 "use client"
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link'
 import { Authenticator } from '@aws-amplify/ui-react';
 import { Post } from '@/API';
