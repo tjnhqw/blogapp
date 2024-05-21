@@ -6,14 +6,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: "blogappcourse7344a3afede44186a43f752c7e53e15d1d238-dev.s3.ap-southeast-1.amazonaws.com"
       },
-    ]
+    ],
+    unoptimized: true
   },
   logging: {
     fetches: {
       fullUrl: true
     }
   },
-  output: "export",
+  // output: "export",
 };
 
 export default nextConfig;

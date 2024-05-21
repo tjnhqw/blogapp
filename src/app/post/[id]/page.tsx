@@ -140,6 +140,7 @@ function PostDetail({ params }: { params: { id: string } }) {
 //     query: listPosts,
 //   })
 //   const paths = posts.data.listPosts.items.map((post) => ({ id: post.id }))
+//   console.log('paths: ', paths);
 //   return paths
 // }
 
