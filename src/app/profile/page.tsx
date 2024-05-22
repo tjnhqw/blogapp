@@ -11,7 +11,6 @@ import "../../../configureAmplify"
 
 function Profile() {
   const [user, setUser] = useState<AuthUser | null>(null);
-  console.log('user: ', user);
   const router = useRouter();
   useEffect(() => {
     checkUser();

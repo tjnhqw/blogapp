@@ -7,7 +7,7 @@
             "UserPoolId"
           ],
           "category": "auth",
-          "resourceName": "blogappcourseba66f753"
+          "resourceName": "blogappcourse02767ab6"
         }
       ],
       "output": {
@@ -16,7 +16,7 @@
             {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
-                "userPoolId": "authblogappcourseba66f753"
+                "userPoolId": "authblogappcourse02767ab6"
               }
             }
           ],
@@ -33,7 +33,7 @@
     }
   },
   "auth": {
-    "blogappcourseba66f753": {
+    "blogappcourse02767ab6": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
